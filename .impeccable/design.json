@@ -1,0 +1,497 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T10:52:53.756Z",
+  "title": "Design System: Grocery & Meal Planner",
+  "extensions": {
+    "colorMeta": {
+      "cream-50": {
+        "role": "neutral",
+        "displayName": "Raised Cream",
+        "canonical": "#FDFAF4",
+        "tonalRamp": [
+          "#DCC9A2",
+          "#EADCBE",
+          "#F4EAD5",
+          "#FAF4E8",
+          "#FDFAF4"
+        ]
+      },
+      "cream-100": {
+        "role": "neutral",
+        "displayName": "Working Cream",
+        "canonical": "#FAF4E8",
+        "tonalRamp": [
+          "#DCC9A2",
+          "#EADCBE",
+          "#F4EAD5",
+          "#FAF4E8",
+          "#FDFAF4"
+        ]
+      },
+      "cream-200": {
+        "role": "neutral",
+        "displayName": "Butter Cream",
+        "canonical": "#F4EAD5",
+        "tonalRamp": [
+          "#DCC9A2",
+          "#EADCBE",
+          "#F4EAD5",
+          "#FAF4E8",
+          "#FDFAF4"
+        ]
+      },
+      "cream-300": {
+        "role": "neutral",
+        "displayName": "Pressed Cream",
+        "canonical": "#EADCBE",
+        "tonalRamp": [
+          "#DCC9A2",
+          "#EADCBE",
+          "#F4EAD5",
+          "#FAF4E8",
+          "#FDFAF4"
+        ]
+      },
+      "cream-400": {
+        "role": "neutral",
+        "displayName": "Rule Cream",
+        "canonical": "#DCC9A2",
+        "tonalRamp": [
+          "#DCC9A2",
+          "#EADCBE",
+          "#F4EAD5",
+          "#FAF4E8",
+          "#FDFAF4"
+        ]
+      },
+      "forest-300": {
+        "role": "primary",
+        "displayName": "Pale Sage",
+        "canonical": "#7A9A88",
+        "tonalRamp": [
+          "#10211A",
+          "#173027",
+          "#1E3B2F",
+          "#2C4C3E",
+          "#3A5D4D",
+          "#4F7462",
+          "#7A9A88",
+          "#A9C0B1",
+          "#D3DFD6",
+          "#E9EFEA"
+        ]
+      },
+      "forest-400": {
+        "role": "primary",
+        "displayName": "Sage Ink",
+        "canonical": "#4F7462",
+        "tonalRamp": [
+          "#10211A",
+          "#173027",
+          "#1E3B2F",
+          "#2C4C3E",
+          "#3A5D4D",
+          "#4F7462",
+          "#7A9A88",
+          "#A9C0B1",
+          "#D3DFD6",
+          "#E9EFEA"
+        ]
+      },
+      "forest-600": {
+        "role": "primary",
+        "displayName": "Rail Moss",
+        "canonical": "#2C4C3E",
+        "tonalRamp": [
+          "#10211A",
+          "#173027",
+          "#1E3B2F",
+          "#2C4C3E",
+          "#3A5D4D",
+          "#4F7462",
+          "#7A9A88",
+          "#A9C0B1",
+          "#D3DFD6",
+          "#E9EFEA"
+        ]
+      },
+      "forest-700": {
+        "role": "primary",
+        "displayName": "Forest Green",
+        "canonical": "#1E3B2F",
+        "tonalRamp": [
+          "#10211A",
+          "#173027",
+          "#1E3B2F",
+          "#2C4C3E",
+          "#3A5D4D",
+          "#4F7462",
+          "#7A9A88",
+          "#A9C0B1",
+          "#D3DFD6",
+          "#E9EFEA"
+        ]
+      },
+      "forest-900": {
+        "role": "primary",
+        "displayName": "Night Forest",
+        "canonical": "#10211A",
+        "tonalRamp": [
+          "#10211A",
+          "#173027",
+          "#1E3B2F",
+          "#2C4C3E",
+          "#3A5D4D",
+          "#4F7462",
+          "#7A9A88",
+          "#A9C0B1",
+          "#D3DFD6",
+          "#E9EFEA"
+        ]
+      },
+      "pink-100": {
+        "role": "tertiary",
+        "displayName": "Blush",
+        "canonical": "#FFE1F0",
+        "tonalRamp": [
+          "#C2006F",
+          "#FF3EA5",
+          "#FF8CC8",
+          "#FFE1F0",
+          "#FFF0F7"
+        ]
+      },
+      "pink-300": {
+        "role": "tertiary",
+        "displayName": "Soft Pink",
+        "canonical": "#FF8CC8",
+        "tonalRamp": [
+          "#C2006F",
+          "#FF3EA5",
+          "#FF8CC8",
+          "#FFE1F0",
+          "#FFF0F7"
+        ]
+      },
+      "pink-500": {
+        "role": "tertiary",
+        "displayName": "Hot Pink",
+        "canonical": "#FF3EA5",
+        "tonalRamp": [
+          "#C2006F",
+          "#FF3EA5",
+          "#FF8CC8",
+          "#FFE1F0",
+          "#FFF0F7"
+        ]
+      },
+      "pink-700": {
+        "role": "tertiary",
+        "displayName": "Deep Pink",
+        "canonical": "#C2006F",
+        "tonalRamp": [
+          "#C2006F",
+          "#FF3EA5",
+          "#FF8CC8",
+          "#FFE1F0",
+          "#FFF0F7"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#4A5F55",
+        "tonalRamp": [
+          "#1E3B2F",
+          "#4A5F55",
+          "#5C6C62"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#5C6C62",
+        "tonalRamp": [
+          "#1E3B2F",
+          "#4A5F55",
+          "#5C6C62"
+        ]
+      },
+      "danger": {
+        "role": "error",
+        "displayName": "Paprika",
+        "canonical": "#A3302A",
+        "tonalRamp": [
+          "#A3302A",
+          "#F6DCD5"
+        ]
+      },
+      "danger-soft": {
+        "role": "error",
+        "displayName": "Paprika Wash",
+        "canonical": "#F6DCD5",
+        "tonalRamp": [
+          "#A3302A",
+          "#F6DCD5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The one big title of a destination screen: the date on Today, a recipe name, the login brand line."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Standard page titles in the page header."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section titles within a page."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Tabular day-of-month numbers, step numbers, the large count on the forest panel."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running text; descriptions cap at 60ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Field labels, small buttons, grocery category group headings."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Day abbreviations, source notes, tags, badges."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet",
+        "value": "0 1px 2px rgb(16 33 26 / 0.05), 0 2px 8px rgb(16 33 26 / 0.04)",
+        "purpose": "Resting sheets and the floating edit button over planner photos."
+      },
+      {
+        "name": "lift",
+        "value": "0 2px 4px rgb(16 33 26 / 0.06), 0 8px 24px rgb(16 33 26 / 0.08)",
+        "purpose": "Toasts."
+      },
+      {
+        "name": "dialog",
+        "value": "0 12px 48px rgb(16 33 26 / 0.22)",
+        "purpose": "Native modal dialogs, over a Night Forest backdrop at 45%."
+      }
+    ],
+    "focus": [
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid #1E3B2F; outline-offset: 2px; border-radius: 6px",
+        "purpose": "Global keyboard focus on cream."
+      },
+      {
+        "name": "focus-ring-on-forest",
+        "value": "outline-color: #F4EAD5",
+        "purpose": "Focus on the forest rail, bars and panels."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Default easing for state changes, dialogs, toasts and the strike."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Defined for on-screen movement between two positions."
+      },
+      {
+        "name": "duration-fast",
+        "value": "140ms",
+        "purpose": "Colour, border and opacity changes; route fade."
+      },
+      {
+        "name": "duration-base",
+        "value": "200ms",
+        "purpose": "Dialog and toast enter and exit; item text colour on check."
+      },
+      {
+        "name": "press",
+        "value": "transform: scale(0.97), 120ms ease-out",
+        "purpose": "Active feedback on every pressable; removed under reduced motion."
+      },
+      {
+        "name": "dialog-enter",
+        "value": "opacity 0 to 1, translateY(8px) scale(0.98) to none, 200ms ease-out via @starting-style",
+        "purpose": "Native dialog open and close; backdrop fades to rgb(16 33 26 / 0.45)."
+      },
+      {
+        "name": "strike-draw",
+        "value": "clip-path inset(0 100% 0 0) to inset(0), 240ms ease-out; 420ms hold; 300ms layout move",
+        "purpose": "Signature grocery check-off; instant and stationary under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Forest fill, cream text; the one main action on a screen.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg>Plan meals</button>",
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:40px; padding:0 16px; border-radius:8px; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; font-size:0.9375rem; font-weight:500; border:1px solid transparent; cursor:pointer; transition: transform 120ms cubic-bezier(0.23,1,0.32,1), background-color 140ms ease, border-color 140ms ease, color 140ms ease; background:#1E3B2F; color:#F4EAD5; } .ds-btn-primary:hover { background:#2C4C3E; } .ds-btn-primary:focus-visible { outline:2px solid #1E3B2F; outline-offset:2px; } .ds-btn-primary:active { transform:scale(0.97); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Raised cream with a hairline forest border; supporting actions.",
+      "html": "<button class=\"ds-btn-secondary\">Add week to grocery list</button>",
+      "css": ".ds-btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:40px; padding:0 16px; border-radius:8px; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; font-size:0.9375rem; font-weight:500; border:1px solid transparent; cursor:pointer; transition: transform 120ms cubic-bezier(0.23,1,0.32,1), background-color 140ms ease, border-color 140ms ease, color 140ms ease; background:#FDFAF4; color:#1E3B2F; border-color:rgb(30 59 47 / 0.15); } .ds-btn-secondary:hover { background:#FAF4E8; border-color:rgb(30 59 47 / 0.30); } .ds-btn-secondary:focus-visible { outline:2px solid #1E3B2F; outline-offset:2px; } .ds-btn-secondary:active { transform:scale(0.97); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "No fill; tertiary actions such as Cancel or Clear basket.",
+      "html": "<button class=\"ds-btn-ghost\">Cancel</button>",
+      "css": ".ds-btn-ghost { display:inline-flex; align-items:center; justify-content:center; gap:8px; height:40px; padding:0 16px; border-radius:8px; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; font-size:0.9375rem; font-weight:500; border:1px solid transparent; cursor:pointer; transition: transform 120ms cubic-bezier(0.23,1,0.32,1), background-color 140ms ease, border-color 140ms ease, color 140ms ease; background:transparent; color:#1E3B2F; } .ds-btn-ghost:hover { background:rgb(30 59 47 / 0.06); } .ds-btn-ghost:focus-visible { outline:2px solid #1E3B2F; outline-offset:2px; } .ds-btn-ghost:active { transform:scale(0.97); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "40px raised-cream field with a forest hairline that goes solid on focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Item</span><input class=\"ds-input\" placeholder=\"Add an item, e.g. paneer\" /></label>",
+      "css": ".ds-field { display:flex; flex-direction:column; gap:6px; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; } .ds-field-label { font-size:0.875rem; font-weight:500; color:#1E3B2F; } .ds-input { height:40px; width:260px; padding:0 12px; border-radius:8px; border:1px solid rgb(30 59 47 / 0.20); background:#FDFAF4; color:#1E3B2F; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; font-size:0.9375rem; caret-color:#C2006F; transition:border-color 140ms; } .ds-input::placeholder { color:#5C6C62; } .ds-input:hover { border-color:rgb(30 59 47 / 0.35); } .ds-input:focus { outline:none; border-color:#1E3B2F; } .ds-input:focus-visible { outline:2px solid #1E3B2F; outline-offset:0; }"
+    },
+    {
+      "name": "Forest Rail",
+      "kind": "nav",
+      "refersTo": "nav-rail",
+      "description": "Solid forest navigation rail with Rail Moss active state and the pink count badge.",
+      "html": "<nav class=\"ds-rail\"><a class=\"ds-rail-item\" href=\"#\"><span>Today</span></a><a class=\"ds-rail-item\" href=\"#\"><span>Week planner</span></a><a class=\"ds-rail-item ds-active\" href=\"#\" aria-current=\"page\"><span>Grocery list</span><span class=\"ds-badge\">7</span></a><a class=\"ds-rail-item\" href=\"#\"><span>Pantry</span></a></nav>",
+      "css": ".ds-rail { display:flex; flex-direction:column; gap:4px; width:248px; padding:24px 16px; background:#1E3B2F; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; } .ds-rail-item { display:flex; align-items:center; gap:12px; height:40px; padding:0 12px; border-radius:8px; font-size:0.9375rem; color:rgb(244 234 213 / 0.75); text-decoration:none; transition: transform 120ms cubic-bezier(0.23,1,0.32,1), background-color 140ms ease, border-color 140ms ease, color 140ms ease; } .ds-rail-item span:first-child { flex:1; } .ds-rail-item:hover { background:rgb(44 76 62 / 0.6); color:#F4EAD5; } .ds-rail-item.ds-active { background:#2C4C3E; color:#F4EAD5; font-weight:500; } .ds-rail-item:focus-visible { outline:2px solid #F4EAD5; outline-offset:2px; } .ds-badge { min-width:1.5rem; padding:0 6px; border-radius:6px; background:#FF3EA5; color:#10211A; font-size:0.75rem; font-weight:600; line-height:20px; text-align:center; font-variant-numeric:tabular-nums; }"
+    },
+    {
+      "name": "Tags",
+      "kind": "chip",
+      "refersTo": "tag-neutral",
+      "description": "24px tags in neutral, pink (Blush with Deep Pink text) and forest tones.",
+      "html": "<div class=\"ds-tags\"><span class=\"ds-tag\">Vegetarian</span><span class=\"ds-tag ds-tag-pink\">In pantry</span><span class=\"ds-tag ds-tag-forest\">Dinner</span></div>",
+      "css": ".ds-tags { display:flex; gap:8px; } .ds-tag { display:inline-flex; align-items:center; height:24px; padding:0 8px; border-radius:6px; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; font-size:0.75rem; font-weight:500; background:rgb(30 59 47 / 0.07); color:#4A5F55; } .ds-tag-pink { background:#FFE1F0; color:#C2006F; } .ds-tag-forest { background:#1E3B2F; color:#F4EAD5; }"
+    },
+    {
+      "name": "Sheet",
+      "kind": "card",
+      "refersTo": "sheet",
+      "description": "Raised cream sheet with a hairline forest border and a whisper shadow.",
+      "html": "<section class=\"ds-sheet\"><h2 class=\"ds-sheet-title\">Coming up</h2><p class=\"ds-sheet-body\">Meals you plan for the next seven days show up here.</p></section>",
+      "css": ".ds-sheet { width:320px; padding:20px; border-radius:16px; border:1px solid rgb(30 59 47 / 0.10); background:#FDFAF4; box-shadow:0 1px 2px rgb(16 33 26 / 0.05), 0 2px 8px rgb(16 33 26 / 0.04); } .ds-sheet-title { margin:0 0 8px; font-family:'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; font-variation-settings:'opsz' 48; font-size:1.375rem; line-height:1.75rem; font-weight:600; letter-spacing:-0.01em; color:#1E3B2F; } .ds-sheet-body { margin:0; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; font-size:0.9375rem; line-height:1.4rem; color:#4A5F55; }"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "custom",
+      "refersTo": "segmented",
+      "description": "Cream track with a solid forest active option.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\" aria-label=\"View\"><button class=\"ds-seg-opt\" role=\"radio\" aria-checked=\"true\">My list</button><button class=\"ds-seg-opt\" role=\"radio\" aria-checked=\"false\">Find products</button></div>",
+      "css": ".ds-seg { display:inline-flex; align-items:center; gap:4px; height:40px; padding:4px; border-radius:10px; border:1px solid rgb(30 59 47 / 0.15); background:#FDFAF4; box-sizing:border-box; } .ds-seg-opt { height:32px; padding:0 12px; border:0; border-radius:8px; background:transparent; color:#4A5F55; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; font-size:0.875rem; font-weight:500; cursor:pointer; transition: transform 120ms cubic-bezier(0.23,1,0.32,1), background-color 140ms ease, border-color 140ms ease, color 140ms ease; } .ds-seg-opt:hover { background:rgb(30 59 47 / 0.06); color:#1E3B2F; } .ds-seg-opt[aria-checked=\"true\"] { background:#1E3B2F; color:#F4EAD5; } .ds-seg-opt:focus-visible { outline:2px solid #1E3B2F; outline-offset:2px; }"
+    },
+    {
+      "name": "Grocery Check-off",
+      "kind": "custom",
+      "refersTo": "checkbox-checked",
+      "description": "Signature: pink tick, then a hand-drawn pink strike drawn across the item by clip-path before it files under In the basket.",
+      "html": "<ul class=\"ds-list\"><li class=\"ds-row\"><button class=\"ds-check\" role=\"checkbox\" aria-checked=\"false\" aria-label=\"Paneer, 200 g\"><span class=\"ds-box\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span></button><span class=\"ds-name\">Paneer<svg class=\"ds-strike\" viewBox=\"0 0 200 12\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M2 7.5c18-3.2 34 2.2 52-.6S88 4.2 106 6.4s30 1.4 48-.2 32-1 44 .9\" fill=\"none\" stroke=\"#FF3EA5\" stroke-width=\"2.2\" stroke-linecap=\"round\" vector-effect=\"non-scaling-stroke\"/></svg></span><span class=\"ds-qty\">200 g</span></li><li class=\"ds-row ds-done\"><button class=\"ds-check\" role=\"checkbox\" aria-checked=\"true\" aria-label=\"Tomatoes, 1 kg\"><span class=\"ds-box\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span></button><span class=\"ds-name\">Tomatoes<svg class=\"ds-strike\" viewBox=\"0 0 200 12\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M2 7.5c18-3.2 34 2.2 52-.6S88 4.2 106 6.4s30 1.4 48-.2 32-1 44 .9\" fill=\"none\" stroke=\"#FF3EA5\" stroke-width=\"2.2\" stroke-linecap=\"round\" vector-effect=\"non-scaling-stroke\"/></svg></span><span class=\"ds-qty\">1 kg</span></li></ul>",
+      "css": ".ds-list { list-style:none; margin:0; width:340px; padding:0 16px; border-radius:16px; border:1px solid rgb(30 59 47 / 0.10); background:#FDFAF4; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; } .ds-row { display:flex; align-items:center; gap:12px; min-height:52px; border-bottom:1px solid rgb(30 59 47 / 0.08); } .ds-row:last-child { border-bottom:0; } .ds-check { display:flex; align-items:center; justify-content:center; width:40px; height:40px; margin:-8px; border:0; background:transparent; border-radius:8px; cursor:pointer; } .ds-check:focus-visible { outline:2px solid #1E3B2F; outline-offset:2px; } .ds-box { display:flex; align-items:center; justify-content:center; width:22px; height:22px; box-sizing:border-box; border-radius:6px; border:1.5px solid rgb(30 59 47 / 0.40); background:#FDFAF4; color:transparent; transition:background-color 140ms cubic-bezier(0.23,1,0.32,1), border-color 140ms; } .ds-check:hover .ds-box { border-color:#1E3B2F; } .ds-done .ds-box { background:#FF3EA5; border-color:#FF3EA5; color:#10211A; } .ds-name { position:relative; flex:1; font-size:0.9375rem; color:#1E3B2F; transition:color 200ms; } .ds-done .ds-name { color:#5C6C62; } .ds-strike { position:absolute; left:-4px; top:50%; width:calc(100% + 8px); height:12px; transform:translateY(-50%); overflow:visible; pointer-events:none; clip-path:inset(0 100% 0 0); transition:clip-path 240ms cubic-bezier(0.23,1,0.32,1); } .ds-done .ds-strike, .ds-row:hover .ds-strike { clip-path:inset(0 0 0 0); } .ds-qty { font-size:0.875rem; color:#4A5F55; font-variant-numeric:tabular-nums; } @media (prefers-reduced-motion: reduce) { .ds-strike { transition-duration:1ms; } }"
+    },
+    {
+      "name": "Toast",
+      "kind": "custom",
+      "refersTo": "toast",
+      "description": "Forest toast with a round hot-pink tick, rising above the tab bar.",
+      "html": "<div class=\"ds-toast\" role=\"status\"><span class=\"ds-tick\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span>Paneer added to your list</div>",
+      "css": ".ds-toast { display:inline-flex; align-items:center; gap:12px; padding:12px 16px; border-radius:12px; background:#1E3B2F; color:#F4EAD5; font-family:'Figtree Variable', ui-sans-serif, system-ui, sans-serif; font-size:0.875rem; box-shadow:0 2px 4px rgb(16 33 26 / 0.06), 0 8px 24px rgb(16 33 26 / 0.08); } .ds-tick { display:flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:9999px; background:#FF3EA5; color:#10211A; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Kitchen Ledger",
+    "overview": "The app is set like a printed kitchen ledger on butter-cream paper: ruled rows tinted from forest green, a solid forest rail holding the navigation, green ink for every heading and primary action, and one hot-pink pen used only when something is done, due today, or needs counting. Every screen is a step of the same loop (pantry, recipes, week, list), so the system favours ruled lists, tables and sheets over tiles and widgets.\n\nDensity is calm and product-grade: a fixed rem type scale, 40px controls, 16px sheets with hairline borders, and soft forest-tinted shadows that barely lift. The only imagery is real food photography from TheMealDB, set flush into cells and cards without frames. Motion is short and ease-out; the one expressive gesture is the hand-drawn pink strike across a checked grocery item.\n\nConfirmed rejections, from the binding brand brief: no grey admin shell with stat tiles and icon grids, no gradients, no glassmorphism, no heavy shadows or coloured glows, no oversized buttons, no colours outside the cream, forest and pink ramps.",
+    "keyCharacteristics": [
+      "60% butter cream ground, 30% forest green structure, 10% hot pink accent.",
+      "Bricolage Grotesque headings and numerals; Figtree for everything you read and tap.",
+      "Hairline forest-tinted rules organise content; sheets, not cards, hold it.",
+      "Real food photos only; no illustration, no stock, no invented data.",
+      "Pink means \"done\", \"today\" or \"count\", never decoration."
+    ],
+    "rules": [
+      {
+        "name": "The 60/30/10 Rule",
+        "body": "Cream is the ground, forest is the structure, pink is the accent. Any new colour must be a tint, shade or alpha of these three; Paprika is the single sanctioned exception, for errors only.",
+        "section": "colors"
+      },
+      {
+        "name": "The Deep Pink Text Rule",
+        "body": "Hot pink is 2.7:1 on cream, so it is never text on cream. Where pink must be read on a light ground, use Deep Pink. Full-strength Hot Pink appears as a fill, a tick, a stroke, or large numerals on forest.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Pink Count Rule",
+        "body": "Each screen carries at most one pink count. On the dashboard the \"Still to buy\" number owns it, so the rail's grocery badge turns cream; on every other screen the rail badge is the pink count.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Bricolage speaks for headings and numerals only; Figtree carries everything else, including group headings inside lists (which are set in Figtree at label size, not as display type).",
+        "section": "typography"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "Nothing sits above a heading: no kicker, no uppercase tracked label. Context goes in the description line below the title, in sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Whisper Shadow Rule",
+        "body": "If a shadow is noticeable before the border is, it is too strong. Borders separate; shadows only hint.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the 60/30/10 balance: Butter Cream ground, Forest Green structure, Hot Pink under a tenth of any screen.",
+      "Do use Deep Pink (#C2006F) whenever pink must be read as text on cream.",
+      "Do let Hot Pink mean only done, today or count: the tick, the strike, the today dot, one count per screen.",
+      "Do separate content with hairline forest-alpha rules (8 to 10%) before reaching for a shadow.",
+      "Do set headings and numerals in Bricolage at opsz 48 with tight tracking, and everything else in Figtree.",
+      "Do use real food photography only, flush in ledger cells and clipped to the container radius elsewhere.",
+      "Do keep controls at 40px (32px small) with 8px corners and ease-out motion of 140 to 240ms, with reduced-motion fallbacks."
+    ],
+    "donts": [
+      "Don't set Hot Pink (#FF3EA5) as small text on cream; it is 2.7:1.",
+      "Don't show more than one pink count on a screen.",
+      "Don't place an eyebrow, kicker or uppercase tracked label above a heading.",
+      "Don't show prices, nutrition, calorie counts or cooking times; the data sources do not provide them.",
+      "Don't introduce gradients, glassmorphism, coloured glows or heavy shadows.",
+      "Don't build screens from stat tiles and icon grids; use ledgers, lists and sheets.",
+      "Don't add colours outside the cream, forest and pink ramps except Paprika for errors."
+    ]
+  }
+}

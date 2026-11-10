@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<title>Grocery &amp; Meal Planner</title>
+<rect width="64" height="64" rx="14" fill="#F4EAD5"/>
+<path d="M23 34V25C23 18.5 27 14 32 14S41 18.5 41 25V34" fill="none" stroke="#1E3B2F" stroke-width="5" stroke-linecap="round"/>
+<path d="M20 35C14 31 10 26 11 20C12 16 16 16 18 18C19 14 24 14 25 17C28 18 28 26 27 35Z" fill="#4F7462"/>
+<circle cx="34" cy="29" r="9.5" fill="#FF3EA5"/>
+<path d="M10 34H54C55 34 55.6 34.8 55.4 35.7L52 54C51.4 57 49 59 46 59H18C15 59 12.6 57 12 54L8.6 35.7C8.4 34.8 9 34 10 34Z" fill="#1E3B2F"/>
+<path d="M31 53C31 47 35 43 41 43 41 49 37 53 31 53Z" fill="#F4EAD5"/>
+</svg>

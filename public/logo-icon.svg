@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<title>Grocery &amp; Meal Planner</title>
+<rect width="512" height="512" rx="112" fill="#F4EAD5"/>
+<g transform="translate(0 0) scale(1)"><path d="M194 268V204C194 152 222 120 256 120S318 152 318 204V268" fill="none" stroke="#1E3B2F" stroke-width="28" stroke-linecap="round"/>
+<path d="M196 286C160 262 120 230 116 190C113 162 136 148 154 160C154 136 182 126 196 146C212 134 234 146 230 170C246 192 236 238 222 286Z" fill="#4F7462"/>
+<path d="M206 286C184 250 172 214 182 176" fill="none" stroke="#A9C0B1" stroke-width="7" stroke-linecap="round"/>
+<path d="M166 274C142 252 128 226 138 204" fill="none" stroke="#7A9A88" stroke-width="10" stroke-linecap="round"/><g transform="rotate(32 340 226)">
+<rect x="310" y="146" width="60" height="164" rx="30" fill="#C9A15E"/>
+<path d="M325 184l30-13M325 216l30-13M325 248l30-13" stroke="#F4EAD5" stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+</g>
+<ellipse cx="262" cy="236" rx="62" ry="54" fill="#FF3EA5"/>
+<path d="M262 186c-6-10-18-14-30-10 8 8 18 12 30 10Zm0 0c6-10 18-14 30-10-8 8-18 12-30 10Zm0 0c-2-12 2-22 10-28" fill="#4F7462" stroke="#4F7462" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="236" cy="222" rx="14" ry="9" fill="#F4EAD5" opacity="0.45" transform="rotate(-24 236 222)"/><path d="M104 268H408C414 268 418 273 417 279L392 414C388 434 371 448 351 448H161C141 448 124 434 120 414L95 279C94 273 98 268 104 268Z" fill="#1E3B2F"/><g fill="#F4EAD5">
+<path d="M254 404C226 404 206 384 206 356 234 356 254 376 254 404Z"/>
+<path d="M262 404C262 368 286 342 322 342 322 378 298 404 262 404Z"/>
+</g>
+<path d="M258 410V372" stroke="#1E3B2F" stroke-width="6" stroke-linecap="round"/><path d="M340 98l10-26M366 112l22-16M376 138l26-4" stroke="#FF3EA5" stroke-width="12" stroke-linecap="round"/></g>
+</svg>

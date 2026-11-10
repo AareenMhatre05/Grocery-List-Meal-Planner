@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    /* Fine paper grain only: balanced dark and light fibres in shades of the cream itself.
+       No low-frequency layer, so no stains or patches. */
+    --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.05' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.62 0 0 0 0 0.53 0 0 0 0 0.38 0.2 0 0 0 -0.085'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    --paper-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='l'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 0.98 0 0 0 0 0.92 0 0.45 0 0 -0.17'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23l)'/%3E%3C/svg%3E");
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-cream font-sans text-base text-ink antialiased;
+    /* Handmade paper at roughly 1-2% intensity over the #F4EAD5 ground: two tiny generated
+       grain tiles, no image downloads, no stains, gradients or patterns. Cards and inputs
+       keep solid surfaces, so the grain only shows on the page ground. */
+    background-image: var(--paper-grain), var(--paper-light);
+    background-size: 200px 200px, 240px 240px;
+    font-feature-settings: "ss01" 0;
+    text-rendering: optimizeLegibility;
+    caret-color: theme("colors.pink.700");
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-ink;
+    font-variation-settings: "opsz" 48;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: theme("colors.pink.100");
+    color: theme("colors.forest.900");
+  }
+
+  a {
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.forest.700");
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: theme("colors.ink.muted");
+    opacity: 1;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme("colors.cream.400") transparent;
+  }
+
+  img {
+    color: transparent; /* hide alt text flash while loading */
+  }
+}
+
+@layer components {
+  /* Focus ring that reads on the forest rail */
+  .on-forest :focus-visible {
+    outline-color: theme("colors.cream.200");
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Native dialog: enter and exit with a short ease-out, centred (modals are exempt from trigger origin) */
+  dialog.app-dialog {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    transition:
+      opacity 200ms var(--ease-out),
+      transform 200ms var(--ease-out),
+      overlay 200ms allow-discrete,
+      display 200ms allow-discrete;
+  }
+  dialog.app-dialog[open] {
+    opacity: 1;
+    transform: none;
+  }
+  @starting-style {
+    dialog.app-dialog[open] {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+  }
+  dialog.app-dialog::backdrop {
+    background: rgb(16 33 26 / 0);
+    transition:
+      background-color 200ms var(--ease-out),
+      overlay 200ms allow-discrete,
+      display 200ms allow-discrete;
+  }
+  dialog.app-dialog[open]::backdrop {
+    background: rgb(16 33 26 / 0.45);
+  }
+  @starting-style {
+    dialog.app-dialog[open]::backdrop {
+      background: rgb(16 33 26 / 0);
+    }
+  }
+
+  /* Signature: the ink strike drawn across a checked grocery item */
+  .strike-ink {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 240ms var(--ease-out);
+  }
+  .strike-ink[data-on="true"] {
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* Press feedback for buttons */
+  .press {
+    transition:
+      transform 120ms var(--ease-out),
+      background-color 140ms ease,
+      border-color 140ms ease,
+      color 140ms ease;
+  }
+  .press:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  .skeleton {
+    background: theme("colors.cream.300");
+    border-radius: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  dialog.app-dialog,
+  dialog.app-dialog[open] {
+    transform: none;
+  }
+  @starting-style {
+    dialog.app-dialog[open] {
+      transform: none;
+    }
+  }
+  .press:active:not(:disabled) {
+    transform: none;
+  }
+  .strike-ink {
+    transition-duration: 1ms;
+  }
+}

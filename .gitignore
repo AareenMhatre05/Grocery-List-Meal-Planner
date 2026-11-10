@@ -1,0 +1,40 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# environment and secrets: never commit real keys (use .env.example as the template)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+serviceAccount*.json
+*firebase-adminsdk*.json
+
+# local tooling and AI assistant configuration
+/.claude/
+.vscode/
+.idea/
+
+# Impeccable design tool: local screenshots, mocks and build state (design docs are committed)
+/.impeccable/review/
+/.impeccable/mocks/
+/.impeccable/build/
+/.impeccable/questions/
+/.impeccable/config.local.json
+
+# misc
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

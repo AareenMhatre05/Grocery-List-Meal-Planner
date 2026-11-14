@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { onIdTokenChanged } from "firebase/auth";
 import { MotionConfig } from "framer-motion";
 import { auth } from "./firebase";
 import Home from "./components/Home";
@@ -14,8 +14,8 @@ import Planner from "./components/Planner";
 import AppShell, { Logo } from "./components/AppShell";
 import { ToastProvider } from "./ui/Toast";
 
-// Protected Route Wrapper (uses Firebase Auth)
-const ProtectedRoute = ({ user, children }) => {
+// Protected Route Wrapper: requires a signed-in user whose email address is verified
+const ProtectedRoute = ({ user, verified, children }) => {
   if (user === null) {
     // Auth state still loading
     return (
@@ -25,16 +25,20 @@ const ProtectedRoute = ({ user, children }) => {
       </div>
     );
   }
-  return user ? children : <Navigate to="/login" replace />;
+  // Unverified accounts stay on /login, which shows the "verify your email" step
+  return user && verified ? children : <Navigate to="/login" replace />;
 };
 
 function App() {
   const [user, setUser] = useState(null);
+  const [verified, setVerified] = useState(false);
 
-  // Listen for Firebase Auth state changes
+  // onIdTokenChanged (not onAuthStateChanged) also fires when the login page refreshes the
+  // token after the user clicks the verification link, so emailVerified updates without a reload.
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onIdTokenChanged(auth, (currentUser) => {
       setUser(currentUser || false);
+      setVerified(Boolean(currentUser?.emailVerified));
     });
     return () => unsubscribe();
   }, []);
@@ -50,7 +54,7 @@ function App() {
             {/* Protected Pages (Require Firebase Auth), all inside the app shell */}
             <Route
               element={
-                <ProtectedRoute user={user}>
+                <ProtectedRoute user={user} verified={verified}>
                   <AppShell />
                 </ProtectedRoute>
               }
@@ -65,7 +69,7 @@ function App() {
             </Route>
 
             {/* Fallback for unknown routes */}
-            <Route path="*" element={<Navigate to={user ? "/" : "/login"} replace />} />
+            <Route path="*" element={<Navigate to={user && verified ? "/" : "/login"} replace />} />
           </Routes>
         </Router>
       </ToastProvider>

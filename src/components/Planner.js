@@ -6,7 +6,7 @@ import { PlateSpot } from "../ui/Spots";
 import { useToast } from "../ui/Toast";
 import { MealPickerModal } from "./MealPicker";
 import { usePlan } from "../lib/plan";
-import { SLOTS, slotLabel, lookupMeal, mealIngredients } from "../lib/meals";
+import { SLOTS, slotLabel, lookupMeal, mealIngredients, sizedThumb } from "../lib/meals";
 import { useStoredState, KEYS } from "../lib/storage";
 import { mergeIngredients } from "../lib/grocery";
 import { toKey, fromKey, addDays, startOfWeek, weekDays, formatDayShort, formatWeekRange, formatLong, isSameDay } from "../lib/dates";
@@ -35,7 +35,7 @@ function SlotCell({ entry, slot, dateKey, onOpen, compact }) {
     return (
       <div className="group relative h-full">
         <Link to={`/meal/${entry.id}`} className="block h-full hover:bg-forest/[0.04] focus-visible:rounded-none focus-visible:outline-offset-[-2px]">
-          <FoodImage src={entry.thumb ? `${entry.thumb}/preview` : null} alt="" ratio="aspect-[4/3]" />
+          <FoodImage src={sizedThumb(entry.thumb, "preview")} alt="" ratio="aspect-[4/3]" />
           <span className="block px-2 pb-2 pt-1.5">
             <span className="line-clamp-2 text-[0.8125rem] font-medium leading-snug text-ink">{entry.name}</span>
           </span>
@@ -55,7 +55,7 @@ function SlotCell({ entry, slot, dateKey, onOpen, compact }) {
   return (
     <div className="flex items-center gap-3 rounded-lg border border-forest/10 bg-cream-50 p-2 pr-1">
       <Link to={`/meal/${entry.id}`} className="flex min-w-0 flex-1 items-center gap-3 rounded">
-        <FoodImage src={entry.thumb ? `${entry.thumb}/preview` : null} alt="" ratio="aspect-square" className="w-14 shrink-0 rounded" />
+        <FoodImage src={sizedThumb(entry.thumb, "preview")} alt="" ratio="aspect-square" className="w-14 shrink-0 rounded" />
         <span className="line-clamp-2 font-medium leading-snug text-ink">{entry.name}</span>
       </Link>
       <IconButton icon={Pencil} label={`Change ${slotLabel(slot).toLowerCase()}`} onClick={() => onOpen(dateKey, slot)} />

@@ -1,0 +1,33 @@
+rules_version = '2';
+
+// Firestore security rules. Deploy with: firebase deploy --only firestore:rules
+// (or paste into Firebase console > Firestore Database > Rules > Publish).
+// Everything not matched below is denied.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Signed in, owns the document, and has verified their email address
+    function isVerifiedOwner(userId) {
+      return request.auth != null
+        && request.auth.uid == userId
+        && request.auth.token.email_verified == true;
+    }
+
+    // Only the profile fields the app writes, with sane types and sizes
+    function isValidProfile(d) {
+      return d.keys().hasOnly(['name', 'email', 'preference', 'allergies', 'foodType', 'createdAt', 'updatedAt'])
+        && d.name is string && d.name.size() <= 80
+        && d.email == request.auth.token.email
+        && d.preference in ['all', 'veg', 'nonveg']
+        && d.allergies is string && d.allergies.size() <= 300
+        && d.foodType in ['home-cooked', 'restaurant', 'street']
+        && (!('createdAt' in d) || (d.createdAt is string && d.createdAt.size() <= 40))
+        && (!('updatedAt' in d) || (d.updatedAt is string && d.updatedAt.size() <= 40));
+    }
+
+    match /profiles/{userId} {
+      allow read, delete: if isVerifiedOwner(userId);
+      allow create, update: if isVerifiedOwner(userId) && isValidProfile(request.resource.data);
+    }
+  }
+}

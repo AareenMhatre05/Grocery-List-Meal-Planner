@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Search, Trash2, UtensilsCrossed } from "lucide-react";
 import Modal from "../ui/Modal";
 import { Button, Input, Skeleton, ErrorNote, EmptyState, FoodImage, Select, cx } from "../ui/ui";
-import { searchMeals, mealsByIngredient, mealsByCategory, toPlanEntry, slotLabel, SLOTS, isNonVeg } from "../lib/meals";
+import { sizedThumb, loadMealIndex, fuzzySearchMeals, mealsByIngredient, mealsByCategory, toPlanEntry, slotLabel, SLOTS, mealIsNonVeg, LOCAL_MEALS, localMealsWith } from "../lib/meals";
 import { useStoredState, KEYS } from "../lib/storage";
 import { toKey, addDays, startOfWeek, formatDayShort, formatDayMonth } from "../lib/dates";
 
@@ -21,13 +21,14 @@ function useStarterMeals(enabled) {
         let meals = [];
         let basis = "";
         if (pantry.length) {
-          meals = await mealsByIngredient(pantry[0]);
+          meals = [...localMealsWith(pantry[0]), ...(await mealsByIngredient(pantry[0]))];
           basis = `Uses ${pantry[0]} from your pantry`;
         }
         if (!meals.length) {
           const pref = profile?.dietPreference;
-          meals = pref === "nonveg" ? await mealsByCategory("Chicken") : await mealsByCategory("Vegetarian");
-          basis = pref === "nonveg" ? "Chicken dishes" : "Vegetarian dishes";
+          const local = LOCAL_MEALS.filter((m) => (pref === "nonveg" ? !m.veg : m.veg));
+          meals = [...local, ...(await mealsByCategory(pref === "nonveg" ? "Chicken" : "Vegetarian"))];
+          basis = pref === "nonveg" ? "Non-veg dishes" : "Vegetarian dishes";
         }
         if (live) setState({ loading: false, meals: meals.slice(0, 18), error: null, basis });
       } catch {
@@ -56,7 +57,7 @@ function MealGrid({ meals, onPick, selectedId }) {
               selectedId === m.idMeal ? "border-forest ring-1 ring-forest" : "border-forest/10 hover:border-forest/30"
             )}
           >
-            <FoodImage src={`${m.strMealThumb}/preview`} alt="" ratio="aspect-[4/3]" />
+            <FoodImage src={sizedThumb(m.strMealThumb, "preview")} alt="" ratio="aspect-[4/3]" />
             <span className="block px-3 py-2">
               <span className="line-clamp-2 text-sm font-medium leading-snug text-ink">{m.strMeal}</span>
             </span>
@@ -89,7 +90,7 @@ export function MealPickerModal({ open, onClose, dateKey, dateLabel, slot, curre
     setSubmitted(q);
     setResults({ loading: true, meals: [], error: null });
     try {
-      setResults({ loading: false, meals: await searchMeals(q), error: null });
+      setResults({ loading: false, meals: fuzzySearchMeals(await loadMealIndex(), q).slice(0, 30), error: null });
     } catch {
       setResults({ loading: false, meals: [], error: "Search failed. Check your connection and try again." });
     }
@@ -98,7 +99,7 @@ export function MealPickerModal({ open, onClose, dateKey, dateLabel, slot, curre
   const view = submitted ? results : starter;
   const pref = profile?.dietPreference;
   const meals = useMemo(
-    () => (view.meals || []).filter((m) => (pref === "veg" ? !isNonVeg(m.strMeal) : true)),
+    () => (view.meals || []).filter((m) => (pref === "veg" ? !mealIsNonVeg(m) : true)),
     [view.meals, pref]
   );
 
@@ -121,7 +122,7 @@ export function MealPickerModal({ open, onClose, dateKey, dateLabel, slot, curre
         <label htmlFor="meal-search" className="sr-only">Search recipes</label>
         <div className="relative flex-1">
           <Search size={16} strokeWidth={1.75} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted" aria-hidden />
-          <Input id="meal-search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search recipes, e.g. dal, curry, pasta" className="pl-9" autoComplete="off" />
+          <Input id="meal-search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search recipes, e.g. dosa, dal, pasta" className="pl-9" autoComplete="off" />
         </div>
         <Button type="submit" variant="primary">Search</Button>
       </form>

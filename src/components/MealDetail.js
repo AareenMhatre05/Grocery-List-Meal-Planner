@@ -5,7 +5,7 @@ import { Button, Skeleton, EmptyState, ErrorNote, ButtonLink, FoodImage, cx } fr
 import { useToast } from "../ui/Toast";
 import { SprigDivider } from "../ui/Spots";
 import { AddToPlanModal } from "./MealPicker";
-import { lookupMeal, mealIngredients, mealSteps, youtubeEmbed, toPlanEntry, slotLabel } from "../lib/meals";
+import { sizedThumb, lookupMeal, mealIngredients, mealSteps, youtubeEmbed, toPlanEntry, slotLabel } from "../lib/meals";
 import { usePlan } from "../lib/plan";
 import { useStoredState, KEYS } from "../lib/storage";
 import { inPantry, mergeIngredients } from "../lib/grocery";
@@ -114,12 +114,33 @@ function MealDetail() {
       {back}
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-12">
-        <FoodImage src={meal.strMealThumb} alt={meal.strMeal} className="rounded-xl" ratio="aspect-[4/3]" />
+        <figure>
+          <FoodImage src={meal.strMealThumb} alt={meal.strMeal} className="rounded-xl" ratio="aspect-[4/3]" />
+          {meal.photoCredit && (
+            <figcaption className="mt-2 text-xs text-ink-muted">
+              Photo:{" "}
+              <a href={meal.photoCredit.source} target="_blank" rel="noreferrer" className="underline decoration-forest/30 hover:text-ink">
+                {meal.photoCredit.author}
+              </a>
+              {", "}
+              {meal.photoCredit.licenseUrl ? (
+                <a href={meal.photoCredit.licenseUrl} target="_blank" rel="noreferrer" className="underline decoration-forest/30 hover:text-ink">
+                  {meal.photoCredit.license}
+                </a>
+              ) : (
+                meal.photoCredit.license
+              )}
+              , via Wikimedia Commons
+            </figcaption>
+          )}
+        </figure>
 
         <div className="flex flex-col">
           <h1 className="text-4xl font-semibold leading-[1.05] tracking-[-0.025em]">{meal.strMeal}</h1>
           <p className="mt-4 text-ink-soft">
-            {[meal.strCategory, meal.strArea !== "Unknown" && meal.strArea].filter(Boolean).map((t) => `${t} · `)}
+            {[meal.strCategory, meal.region ?? (meal.strArea !== "Unknown" && meal.strArea), meal.time && `${meal.time} min`, meal.serves && `Serves ${meal.serves}`]
+              .filter(Boolean)
+              .map((t) => `${t} · `)}
             {ingredients.length} ingredients
             {pantry.length > 0 && (
               <>
@@ -204,7 +225,7 @@ function MealDetail() {
                   className="press group flex w-full max-w-xl items-center gap-4 rounded-xl bg-forest p-3 pr-5 text-left text-cream hover:bg-forest-600"
                 >
                   <span className="relative w-28 shrink-0 overflow-hidden rounded-lg">
-                    <img src={`${meal.strMealThumb}/preview`} alt="" className="aspect-video w-full object-cover opacity-80" loading="lazy" />
+                    <img src={sizedThumb(meal.strMealThumb, "preview")} alt="" className="aspect-video w-full object-cover opacity-80" loading="lazy" />
                     <span className="absolute inset-0 flex items-center justify-center">
                       <span className="flex h-9 w-9 items-center justify-center rounded-full bg-pink text-forest-900">
                         <PlayCircle size={20} strokeWidth={1.75} aria-hidden />
@@ -213,7 +234,7 @@ function MealDetail() {
                   </span>
                   <span className="min-w-0">
                     <span className="block font-medium">Play the video tutorial</span>
-                    <span className="block text-sm text-cream/70">Opens here, from YouTube</span>
+                    <span className="block text-sm text-cream/70">{meal.videoChannel ? `By ${meal.videoChannel}, opens here from YouTube` : "Opens here, from YouTube"}</span>
                   </span>
                 </button>
               )}

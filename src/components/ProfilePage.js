@@ -8,6 +8,14 @@ import { PageHeader, Button, Input, Select, Field, Sheet, Skeleton, ErrorNote, S
 import { useToast } from "../ui/Toast";
 import { useStoredState, KEYS } from "../lib/storage";
 
+// "permission-denied" means the Firestore security rules refused the request
+// (rules not published yet, or the email is not verified), not a network problem.
+function saveError(err, action) {
+  if (err?.code === "permission-denied") return `Couldn't ${action} your profile: access was refused by the database. Check that your email is verified, then try again.`;
+  if (err?.code === "unavailable") return `Couldn't ${action} your profile: you seem to be offline. Check your connection and try again.`;
+  return action === "load" ? "Couldn't load your profile. You can still edit and save it." : "Couldn't save your profile. Please try again.";
+}
+
 function ProfilePage() {
   const navigate = useNavigate();
   const toast = useToast();
@@ -48,7 +56,7 @@ function ProfilePage() {
       }
     } catch (err) {
       console.error("Error loading profile:", err);
-      setError("Couldn't load your profile. You can still edit and save it.");
+      setError(saveError(err, "load"));
     } finally {
       setLoading(false);
     }
@@ -71,7 +79,7 @@ function ProfilePage() {
       toast("Profile saved");
     } catch (err) {
       console.error("Error saving profile:", err);
-      setError("Couldn't save your profile. Check your connection and try again.");
+      setError(saveError(err, "save"));
     } finally {
       setSaving(false);
     }
@@ -111,7 +119,7 @@ function ProfilePage() {
 
             <div className="grid gap-6 sm:grid-cols-2">
               <Field label="Name" htmlFor="name">
-                <Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" autoComplete="name" />
+                <Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" autoComplete="name" maxLength={80} />
               </Field>
               <Field label="Email" htmlFor="email">
                 <Input id="email" value={user?.email || ""} readOnly disabled />
@@ -136,7 +144,7 @@ function ProfilePage() {
 
             <div className="grid gap-6 sm:grid-cols-2">
               <Field label="Allergies" htmlFor="allergies" hint="Separate with commas">
-                <Input id="allergies" value={allergies} onChange={(e) => setAllergies(e.target.value)} placeholder="e.g. peanuts, lactose, gluten" />
+                <Input id="allergies" value={allergies} onChange={(e) => setAllergies(e.target.value)} placeholder="e.g. peanuts, lactose, gluten" maxLength={300} />
               </Field>
               <Field label="Usually eats" htmlFor="food-type">
                 <Select id="food-type" value={foodType} onChange={(e) => setFoodType(e.target.value)}>

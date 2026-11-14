@@ -6,7 +6,7 @@ import { auth, db } from "../firebase";
 import { ButtonLink, SectionTitle, FoodImage, EmptyState, cx } from "../ui/ui";
 import { useStoredState, KEYS } from "../lib/storage";
 import { usePlan } from "../lib/plan";
-import { SLOTS } from "../lib/meals";
+import { SLOTS, sizedThumb } from "../lib/meals";
 import { toKey, addDays, startOfWeek, weekDays, formatLong, formatDayShort, isSameDay, formatWeekday } from "../lib/dates";
 
 // Rough end of each meal window, used to decide what is still "coming up" today
@@ -44,7 +44,7 @@ function TodaySlot({ slot, entry, dateKey }) {
   }
   return (
     <Link to={`/meal/${entry.id}`} className="group flex h-full flex-col overflow-hidden rounded-lg border border-forest/10 bg-cream-50 hover:border-forest/25">
-      <FoodImage src={entry.thumb ? `${entry.thumb}/medium` : null} alt="" ratio="aspect-[4/3]" />
+      <FoodImage src={sizedThumb(entry.thumb, "medium")} alt="" ratio="aspect-[4/3]" />
       <span className="flex flex-1 flex-col gap-0.5 p-3">
         <span className="flex items-center gap-1.5 text-xs font-medium text-ink-muted">
           <slot.icon size={14} strokeWidth={1.75} aria-hidden />
@@ -193,7 +193,7 @@ function Home() {
                 {upcoming.map(({ date, slot, entry }) => (
                   <li key={`${toKey(date)}-${slot}`} className="border-b border-forest/[0.08] last:border-b-0">
                     <Link to={`/meal/${entry.id}`} className="group flex items-center gap-3 rounded py-2.5">
-                      <FoodImage src={entry.thumb ? `${entry.thumb}/preview` : null} alt="" ratio="aspect-square" className="w-11 shrink-0 rounded" />
+                      <FoodImage src={sizedThumb(entry.thumb, "preview")} alt="" ratio="aspect-square" className="w-11 shrink-0 rounded" />
                       <span className="min-w-0 flex-1">
                         <span className="block truncate text-sm font-medium text-ink group-hover:underline">{entry.name}</span>
                         <span className="block text-xs text-ink-muted">

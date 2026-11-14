@@ -1,5 +1,6 @@
 // Import the functions you need
 import { initializeApp } from "firebase/app";
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
@@ -22,6 +23,16 @@ if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// App Check (optional): proves requests come from this site, so scripts and bots calling
+// your Firebase project directly are rejected once enforcement is on in the Firebase console.
+// Enabled only when a reCAPTCHA v3 site key is set in .env.local.
+if (process.env.REACT_APP_RECAPTCHA_SITE_KEY) {
+  initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider(process.env.REACT_APP_RECAPTCHA_SITE_KEY),
+    isTokenAutoRefreshEnabled: true,
+  });
+}
 
 // Initialize Firebase Auth and Firestore
 const auth = getAuth(app);

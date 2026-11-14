@@ -15,6 +15,8 @@
 .env
 .env.*
 !.env.example
+# non-secret build flags only (see the file's header)
+!.env.production
 *.pem
 *.key
 serviceAccount*.json
@@ -31,6 +33,12 @@ serviceAccount*.json
 /.impeccable/build/
 /.impeccable/questions/
 /.impeccable/config.local.json
+
+# Firebase CLI: local project alias and logs (run `firebase use --add` on each machine)
+.firebaserc
+.firebase/
+firebase-debug.log*
+firestore-debug.log*
 
 # misc
 .DS_Store
